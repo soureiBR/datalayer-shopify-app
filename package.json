@@ -1,5 +1,5 @@
 {
-  "name": "remix-vercel-courier",
+  "name": "example-app",
   "private": true,
   "scripts": {
     "build": "prisma generate && remix vite:build",

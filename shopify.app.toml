@@ -1,10 +1,10 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "8f9b00dc37f4da96ec0e64668f73fafe"
-application_url = "https://remix-vercel-courier.vercel.app/"
+client_id = "4f3aabeb21937f1c4351e6e351db0c89"
+application_url = "https://ecommerce-app-examples-verce.vercel.app/"
 embedded = true
-name = "remix-vercel-courier"
-handle = "remix-vercel-courier"
+name = "example-app"
+handle = "example-app222"
 
 [webhooks]
 api_version = "2025-01"
@@ -22,7 +22,7 @@ api_version = "2025-01"
 scopes = "write_products, read_orders, write_orders"
 
 [auth]
-redirect_urls = [ "https://remix-vercel-courier.vercel.app/api/auth" ]
+redirect_urls = [ "https://ecommerce-app-examples-verce.vercel.app/api/auth" ]
 
 [pos]
 embedded = false
