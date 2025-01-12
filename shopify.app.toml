@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "8f9b00dc37f4da96ec0e64668f73fafe"
+application_url = "https://remix-vercel-courier.vercel.app/"
+embedded = true
+name = "remix-vercel-courier"
+handle = "remix-vercel-courier"
+
+[webhooks]
+api_version = "2025-01"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products, read_orders, write_orders"
+
+[auth]
+redirect_urls = [ "https://remix-vercel-courier.vercel.app/api/auth" ]
+
+[pos]
+embedded = false
+
+[build]
+include_config_on_deploy = true
+dev_store_url = "pruebas-aplicaciones-bm.myshopify.com"
+automatically_update_urls_on_dev = false
