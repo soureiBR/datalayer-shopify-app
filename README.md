@@ -95,9 +95,11 @@ Your app is now ready to install and use!
 - **Shopify Integration**: Includes Polaris, AppBridge, and Webhooks for enhanced functionality.
 
 ## Need Help?
-
 Feel free to reach out for assistance or customization:
 
-- **Email**: [your_email@example.com](mailto:your_email@example.com)
-- **GitHub**: [github.com/yourgithub](https://github.com/yourgithub)
-- **LinkedIn**: [linkedin.com/in/yourlinkedin](https://linkedin.com/in/yourlinkedin)
+Email: kaizendesarrollador@gmail.com
+GitHub: github.com/aaronarrays
+LinkedIn: https://www.linkedin.com/in/aaronkaizen/
+
+
+This template was built to drastically reduce time and complexity when deploying Shopify apps to Vercel—previously a longer, more fragmented process.
