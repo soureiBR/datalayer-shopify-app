@@ -217,8 +217,7 @@ export default function IndexPage() {
         <div className="container mx-auto flex flex-col items-center justify-between px-4 md:flex-row">
           <p className="mb-2 text-sm md:mb-0">
             © {new Date().getFullYear()} -{" "}
-            <span className="font-semibold">Aaron Kaizen</span>. All rights
-            reserved.
+            <span className="font-semibold">Aaron Kaizen</span>.
           </p>
           <div className="flex space-x-4">
             <a
