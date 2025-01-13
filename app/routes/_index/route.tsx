@@ -1,13 +1,12 @@
 // app/routes/_index.tsx
-
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 import { Form, useLoaderData, Link } from "@remix-run/react";
 
-// Reemplaza con tu import real si "login" está en otro lado
+// Si tu "login" está en otra ubicación, ajusta la ruta
 import { login } from "../../shopify.server";
 
-// 1. Loader que redirige si existe "?shop" y determina si se muestra el form
+// Loader: si query param "shop" existe, redirige; si no, define showForm
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
   if (url.searchParams.get("shop")) {
@@ -16,122 +15,214 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   return { showForm: Boolean(login) };
 };
 
-// 2. Data de ejemplo para las características
-const featuresData = [
-  {
-    id: 1,
-    title: "Feature One",
-    paragraph: "Explica brevemente una de las características más importantes.",
-  },
-  {
-    id: 2,
-    title: "Feature Two",
-    paragraph: "Otra característica útil para tus usuarios.",
-  },
-  {
-    id: 3,
-    title: "Feature Three",
-    paragraph: "Más detalles sobre lo que hace esta tercera característica.",
-  },
-];
-
 export default function IndexPage() {
   const { showForm } = useLoaderData<typeof loader>();
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-white text-gray-800">
-      {/* ========================
-          HERO SECTION
-      =========================*/}
-      <section className="pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-28 lg:pb-28">
+    <div className="relative min-h-screen bg-white text-gray-800 flex flex-col">
+      {/*
+        ===========================
+        HERO / HEADER SECTION
+      ===========================
+      */}
+      <header className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+            Shopify App Template - Remix
+          </h1>
+          <p className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-gray-600">
+            Esta plantilla facilita la creación de apps de Shopify usando Remix,
+            Tailwind y un despliegue óptimo en Vercel. Simplifica y acelera
+            radicalmente el desarrollo de tu aplicación, especialmente cuando la
+            documentación oficial no cubre los casos de Vercel.
+          </p>
+        </div>
+      </header>
+
+      {/*
+        ===========================
+        LOGIN FORM (CONDITIONAL)
+      ===========================
+      */}
+      {showForm && (
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-5 text-3xl font-bold sm:text-4xl md:text-5xl">
-              Free & Open-Source Template
-            </h1>
-            <p className="mb-8 text-base sm:text-lg md:text-xl">
-              Perfect for Startups and SaaS. This template comes with all the
-              essential pages, components, and sections you need to build a
-              complete business website, powered by Remix and Tailwind CSS.
-            </p>
-
-            {/* Form Condicional (sólo aparece si showForm === true) */}
-            {showForm && (
-              <div className="mx-auto mb-8 max-w-md rounded-md border border-gray-200 p-4">
-                <Form method="post" action="/auth/login">
-                  <label className="mb-4 block text-left">
-                    <span className="mb-1 block font-medium text-gray-700">
-                      Dominio de la tienda
-                    </span>
-                    <input
-                      type="text"
-                      name="shop"
-                      placeholder="ej: mi-tienda.myshopify.com"
-                      className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </label>
-                  <button
-                    type="submit"
-                    className="w-full rounded bg-blue-600 py-2 px-4 font-semibold text-white hover:bg-blue-700"
-                  >
-                    Iniciar Sesión
-                  </button>
-                </Form>
-              </div>
-            )}
-
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                to="https://nextjstemplates.com/templates/startup"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded bg-blue-600 px-8 py-3 font-medium text-white hover:bg-blue-700"
+          <div className="mx-auto mb-8 max-w-md rounded-md border border-gray-200 p-4">
+            <Form method="post" action="/auth/login">
+              <label className="mb-4 block text-left">
+                <span className="mb-1 block font-medium text-gray-700">
+                  Dominio de la tienda
+                </span>
+                <input
+                  type="text"
+                  name="shop"
+                  placeholder="ej: mi-tienda.myshopify.com"
+                  className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </label>
+              <button
+                type="submit"
+                className="w-full rounded bg-blue-600 py-2 px-4 font-semibold text-white hover:bg-blue-700"
               >
-                Download Now
-              </Link>
-              <Link
-                to="https://github.com/NextJSTemplates/startup-nextjs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded bg-black/20 px-8 py-3 font-medium text-black hover:bg-black/30"
-              >
-                Star on GitHub
-              </Link>
-            </div>
+                Iniciar Sesión
+              </button>
+            </Form>
           </div>
         </div>
+      )}
 
-        {/* Agrega aquí tus SVGs decorativos si lo deseas */}
-        {/* <div className="absolute top-0 right-0 z-[-1] opacity-30"> ...SVG... </div> */}
-        {/* <div className="absolute bottom-0 left-0 z-[-1] opacity-30"> ...SVG... </div> */}
-      </section>
+      {/*
+        ===========================
+        MAIN CONTENT: INSTRUCTIONS
+      ===========================
+      */}
+      <main className="container mx-auto flex-grow px-4 py-8">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-6 text-2xl font-bold text-gray-800">
+            Installation Instructions
+          </h2>
+          <p className="mb-4 text-gray-700">
+            Sigue estos pasos para configurar y desplegar tu app de Shopify:
+          </p>
 
-      {/* ========================
-          FEATURES SECTION
-      =========================*/}
-      <section className="bg-gray-50 py-16 md:py-20 lg:py-28">
-        <div className="container mx-auto px-4">
-          <FeaturesTitle
-            title="Main Features"
-            paragraph="Check out some of the main benefits and features that will help you build your SaaS or startup website."
-          />
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map((feature) => (
-              <FeatureItem key={feature.id} {...feature} />
-            ))}
-          </div>
+          <ol className="mb-10 list-decimal list-inside space-y-2 text-gray-700">
+            <li>
+              <strong>Fork the Repository:</strong> Haz un fork de este
+              repositorio en tu cuenta de GitHub.
+            </li>
+            <li>
+              <strong>Update Configuration Files:</strong> Modifica
+              <code className="mx-1 rounded bg-gray-200 px-1 py-0.5 text-sm">
+                shopify.app.toml
+              </code>
+              y
+              <code className="mx-1 rounded bg-gray-200 px-1 py-0.5 text-sm">
+                package.json
+              </code>
+              con tu información (name, handle, URLs, client_id).
+            </li>
+            <li>
+              <strong>Create a .env File:</strong> Incluye tus claves
+              (SHOPIFY_API_KEY, SECRET, SCOPES, DATABASE_URL, etc.).
+            </li>
+            <li>
+              <strong>Install Dependencies:</strong>{" "}
+              <code className="rounded bg-gray-200 px-1 py-0.5 text-sm">
+                npm install
+              </code>
+            </li>
+            <li>
+              <strong>Generate and Migrate Prisma:</strong>{" "}
+              <code className="rounded bg-gray-200 px-1 py-0.5 text-sm">
+                npx prisma generate
+              </code>{" "}
+              y{" "}
+              <code className="rounded bg-gray-200 px-1 py-0.5 text-sm">
+                npx prisma migrate deploy
+              </code>
+            </li>
+            <li>
+              <strong>Deploy to Vercel:</strong> Crea un nuevo proyecto, configura
+              las variables de entorno y haz el primer deploy.
+            </li>
+            <li>
+              <strong>Commit Your Changes:</strong> Mantén tu repositorio
+              actualizado usando
+              <code className="mx-1 rounded bg-gray-200 px-1 py-0.5 text-sm">
+                git add .
+              </code>
+              ,
+              <code className="mx-1 rounded bg-gray-200 px-1 py-0.5 text-sm">
+                git commit -m ...
+              </code>
+              y
+              <code className="mx-1 rounded bg-gray-200 px-1 py-0.5 text-sm">
+                git push origin main
+              </code>
+              .
+            </li>
+            <li>
+              <strong>Deploy to Shopify:</strong>{" "}
+              <code className="rounded bg-gray-200 px-1 py-0.5 text-sm">
+                shopify app deploy
+              </code>
+              . Tu app estará lista para instalarse y usarse.
+            </li>
+          </ol>
+
+          {/* Features */}
+          <h3 className="mb-4 text-xl font-bold text-gray-800">Features</h3>
+          <ul className="mb-8 list-disc list-inside space-y-2 text-gray-700">
+            <li>
+              <strong>Optimized for Vercel:</strong> despliegue sin fricción con
+              configuraciones personalizadas para Vercel.
+            </li>
+            <li>
+              <strong>Built-in Tailwind CSS:</strong> estilo rápido y eficiente de tu
+              app usando Tailwind.
+            </li>
+            <li>
+              <strong>Shopify Integration:</strong> incluye Polaris, AppBridge y
+              Webhooks para mayor funcionalidad.
+            </li>
+          </ul>
+
+          {/* Need Help? */}
+          <h3 className="mb-2 text-xl font-bold text-gray-800">Need Help?</h3>
+          <p className="mb-4 text-gray-700">
+            Si necesitas ayuda o personalización, no dudes en contactar:
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
+            <li>
+              <strong>Email:</strong>{" "}
+              <a
+                href="mailto:your_email@example.com"
+                className="text-blue-600 hover:underline"
+              >
+                your_email@example.com
+              </a>
+            </li>
+            <li>
+              <strong>GitHub:</strong>{" "}
+              <a
+                href="https://github.com/yourgithub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                github.com/yourgithub
+              </a>
+            </li>
+            <li>
+              <strong>LinkedIn:</strong>{" "}
+              <a
+                href="https://linkedin.com/in/yourlinkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                linkedin.com/in/yourlinkedin
+              </a>
+            </li>
+          </ul>
+          <p className="mt-8 text-gray-600">
+            Este template se desarrolló para reducir tiempos y complejidad al
+            desplegar apps de Shopify en Vercel, una tarea que anteriormente
+            implicaba mucha documentación dispersa y procesos largos.
+          </p>
         </div>
-      </section>
+      </main>
 
-      {/* ========================
-          FOOTER
-      =========================*/}
+      {/*
+        ===========================
+        FOOTER
+      ===========================
+      */}
       <footer className="bg-gray-900 py-6 text-gray-300">
         <div className="container mx-auto flex flex-col items-center justify-between px-4 md:flex-row">
           <p className="mb-2 text-sm md:mb-0">
             © {new Date().getFullYear()} -{" "}
-            <span className="font-semibold">Aaron Kaizen</span>. Todos los
-            derechos reservados.
+            <span className="font-semibold">Aaron Kaizen</span>. Todos los derechos
+            reservados.
           </p>
           <div className="flex space-x-4">
             <a
@@ -159,46 +250,6 @@ export default function IndexPage() {
           </div>
         </div>
       </footer>
-    </div>
-  );
-}
-
-/* ==========================
-   Sub-Componentes Internos
-   ========================== */
-
-/**
- * Título y descripción de la sección Features
- */
-function FeaturesTitle({
-  title,
-  paragraph,
-}: {
-  title: string;
-  paragraph: string;
-}) {
-  return (
-    <div className="mx-auto mb-10 max-w-xl text-center">
-      <h2 className="mb-4 text-3xl font-bold text-gray-800">{title}</h2>
-      <p className="text-gray-600">{paragraph}</p>
-    </div>
-  );
-}
-
-/**
- * Cada característica individual
- */
-function FeatureItem({
-  title,
-  paragraph,
-}: {
-  title: string;
-  paragraph: string;
-}) {
-  return (
-    <div className="rounded-lg bg-white p-6 shadow hover:shadow-md">
-      <h4 className="mb-2 text-xl font-semibold text-gray-800">{title}</h4>
-      <p className="text-gray-600">{paragraph}</p>
     </div>
   );
 }
