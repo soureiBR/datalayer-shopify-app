@@ -222,13 +222,13 @@ export default function IndexPage() {
           </p>
           <div className="flex space-x-4">
             <a
-              href="mailto:your_email@example.com"
+              href="mailto:kaizendesarrollador@gmail.com"
               className="text-sm text-gray-300 hover:text-white"
             >
               Email
             </a>
             <a
-              href="https://github.com/yourgithub"
+              href="https://github.com/aaronarrays"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-300 hover:text-white"
@@ -236,7 +236,7 @@ export default function IndexPage() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/yourlinkedin"
+              href="https://www.linkedin.com/in/aaronkaizen/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-300 hover:text-white"
