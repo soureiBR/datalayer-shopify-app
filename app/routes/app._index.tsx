@@ -12,12 +12,10 @@ import {
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 
-// Función loader vacía (puedes agregar lógica si la necesitas en el futuro)
 export const loader = async () => {
   return null;
 };
 
-// Función action vacía (puedes agregar lógica si la necesitas en el futuro)
 export const action = async () => {
   return null;
 };
@@ -25,83 +23,71 @@ export const action = async () => {
 export default function Index() {
   return (
     <Page>
-      <TitleBar title="Tellenzi Vs Laar Courier" />
+      <TitleBar title="Welcome Developers - Shopify App Template" />
       <Layout>
         <Layout.Section>
           <Card>
-            <Card>
-              <BlockStack gap="200">
-                {/* Mensaje de Bienvenida Personalizado */}
-                <Text as="h2" variant="headingLg">
-                  ¡Bienvenido a tu aplicación personalizada!
+            <BlockStack gap="200">
+              {/* Introduction Section */}
+              <Text as="h2" variant="headingLg">
+                Welcome Developers!
+              </Text>
+              <Text variant="bodyMd" as="p">
+                I am Aaron Kaizen, a software developer passionate about creating intuitive and efficient solutions.
+              </Text>
+              <Text variant="bodyMd" as="p" fontWeight="bold">
+                This app template is optimized for Vercel deployment and comes with built-in support for Tailwind CSS.
+              </Text>
+
+              {/* About the App */}
+              <Box padding="200">
+                <Text as="h3" variant="headingMd">
+                  🛠️ About This App
+                </Text>
+                <List type="bullet">
+                  <List.Item>
+                    <strong>Purpose:</strong> This template simplifies building Shopify apps using the Remix framework.
+                  </List.Item>
+                  <List.Item>
+                    <strong>Features:</strong> Optimized for deployment on Vercel, supports Tailwind, Polaris, and integrated Shopify tools like AppBridge and Webhooks.
+                  </List.Item>
+                  <List.Item>
+                    <strong>Quick Start:</strong> Just install dependencies and start developing locally.
+                  </List.Item>
+                </List>
+              </Box>
+
+              {/* Need Help Section */}
+              <Box padding="200">
+                <Text as="h3" variant="headingMd">
+                  📞 Need Help?
                 </Text>
                 <Text variant="bodyMd" as="p">
-                  Esta aplicación ha sido desarrollada por BoteroMedia con el objetivo
-                  de brindarte una solución funcional, intuitiva y eficiente.
+                  If you have questions or need assistance, feel free to reach out via my social media or email:
                 </Text>
+                <List type="bullet">
+                  <List.Item>
+                    <strong>Email:</strong> <Link url="mailto:your_email@example.com" removeUnderline>your_email@example.com</Link>
+                  </List.Item>
+                  <List.Item>
+                    <strong>GitHub:</strong> <Link url="https://github.com/yourgithub" target="_blank" removeUnderline>github.com/yourgithub</Link>
+                  </List.Item>
+                  <List.Item>
+                    <strong>LinkedIn:</strong> <Link url="https://linkedin.com/in/yourlinkedin" target="_blank" removeUnderline>linkedin.com/in/yourlinkedin</Link>
+                  </List.Item>
+                </List>
+              </Box>
 
-                {/* Sección: Sobre esta aplicación */}
-                <Box padding="200">
-                  <Text as="h3" variant="headingMd">
-                    🛠️ Sobre esta aplicación
-                  </Text>
-                  <List type="bullet">
-                    <List.Item>
-                      <strong>Función:</strong> Esta aplicación es útil para crear las guías de
-                      envío de tu transportadora Laar Courier.
-                    </List.Item>
-                    <List.Item>
-                      <strong>Uso recomendado:</strong> Por favor, evita realizar modificaciones o
-                      eliminarla sin consultarnos previamente. Esto podría afectar la
-                      funcionalidad de tu plataforma.
-                    </List.Item>
-                  </List>
-                </Box>
-
-                {/* Sección: ¿Necesitas ayuda? */}
-                <Box padding="200">
-                  <Text as="h3" variant="headingMd">
-                    📞 ¿Necesitas ayuda?
-                  </Text>
-                  <Text variant="bodyMd" as="p">
-                    Estamos aquí para apoyarte. Si tienes preguntas, necesitas soporte técnico o
-                    deseas personalizar aún más tu experiencia, no dudes en contactarnos:
-                  </Text>
-                  <List type="bullet">
-                    <List.Item>
-                      <strong>📧 Correo electrónico:</strong>{" "}
-                      <Link url="mailto:contacto@boteromedia.com" removeUnderline>
-                        contacto@boteromedia.com
-                      </Link>
-                    </List.Item>
-                    <List.Item>
-                      <strong>🌐 Sitio web:</strong>{" "}
-                      <Link
-                        url="https://www.boteromedia.com"
-                        target="_blank"
-                        removeUnderline
-                      >
-                        www.boteromedia.com
-                      </Link>
-                    </List.Item>
-                    <List.Item>
-                      <strong>📱 Teléfono/WhatsApp:</strong> (+57) 301-115-2451
-                    </List.Item>
-                  </List>
-                </Box>
-
-                {/* Sección de Agradecimiento */}
-                <Box padding="200">
-                  <Text as="h3" variant="headingMd">
-                    🚀 Gracias por confiar en BoteroMedia!
-                  </Text>
-                  <Text variant="bodyMd" as="p">
-                    Nuestro equipo está comprometido en brindarte soluciones que impulsen tu negocio al
-                    siguiente nivel.
-                  </Text>
-                </Box>
-              </BlockStack>
-            </Card>
+              {/* Thank You Section */}
+              <Box padding="200">
+                <Text as="h3" variant="headingMd">
+                  🚀 Thank You for Choosing This Template!
+                </Text>
+                <Text variant="bodyMd" as="p">
+                  This template is designed to kickstart your Shopify app development journey with powerful tools and an optimized structure for Vercel and Tailwind.
+                </Text>
+              </Box>
+            </BlockStack>
           </Card>
         </Layout.Section>
       </Layout>
