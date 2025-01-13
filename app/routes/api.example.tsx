@@ -27,6 +27,6 @@ export const action: ActionFunction = async ({ request }) => {
 
     return json({ message: "Item added successfully", item: newItem }, { status: 201 });
   } catch (error) {
-    return json({ error: "Invalid request" }, { status: 400 });
+    return json({ error: "Invalid requestttt" }, { status: 400 });
   }
 };

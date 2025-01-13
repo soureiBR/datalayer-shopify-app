@@ -67,7 +67,7 @@ export default function Index() {
                 </Text>
                 <List type="bullet">
                   <List.Item>
-                    <strong>Email:</strong> <Link url="mailto:your_email@example.com" removeUnderline>your_email@example.com</Link>
+                    <strong>Email:</strong> <Link url="mailto:your_email@example.com" removeUnderline>kaizendesarrollador@gmail.com</Link>
                   </List.Item>
                   <List.Item>
                     <strong>GitHub:</strong> <Link url="https://github.com/yourgithub" target="_blank" removeUnderline>github.com/yourgithub</Link>
