@@ -50,7 +50,7 @@ export default function IndexPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto mb-8 max-w-md p-4 text-center">
             <a
-              href="https://github.com/YOUR_USERNAME/YOUR_REPO/fork"
+              href="https://github.com/aaronarrays/shopify-vercel-app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded bg-blue-600 py-3 px-6 font-semibold text-white hover:bg-blue-700"
