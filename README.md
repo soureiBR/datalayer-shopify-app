@@ -32,14 +32,14 @@ Create a `.env` file in the root of your project with the following content:
 
 ```env
 # Shopify and Vercel
-SHOPIFY_API_KEY=570dd80ead4538bbe2262e8eaf693274
-SHOPIFY_API_SECRET=bc04c47d413ecfc12232ed4d7f5fcd50
+SHOPIFY_API_KEY=your_shopify_api_key
+SHOPIFY_API_SECRET=your_shopify_api_secret
 SHOPIFY_SCOPES=read_products,write_products,read_orders,write_orders
-SHOPIFY_APP_URL=https://shopify-vercel-app-chi.vercel.app
+SHOPIFY_APP_URL=https://your-vercel-app-url.vercel.app
 
-# Database ultra important
-DATABASE_URL=postgres://neondb_owner:vNfLsgS8d6lI@ep-green-forest-a5ja5x5i-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require
-DIRECT_DATABASE_URL=postgresql://neondb_owner:vNfLsgS8d6lI@ep-green-forest-a5ja5x5i.us-east-2.aws.neon.tech/neondb?sslmode=require
+# Database
+DATABASE_URL=your_database_url
+DIRECT_DATABASE_URL=your_direct_database_url
 ```
 
 ### 4. Install Dependencies
@@ -68,7 +68,17 @@ Deploy the app to Vercel for the first time:
 3. Add the `.env` file variables to your Vercel project's environment settings.
 4. Deploy the project.
 
-### 7. Deploy to Shopify
+### 7. Commit Your Changes
+
+Ensure you are consistently committing your changes during development. Use the following commands to stage, commit, and push changes:
+
+```bash
+git add .
+git commit -m "Describe your changes here"
+git push origin main
+```
+
+### 8. Deploy to Shopify
 
 Run the Shopify CLI command to deploy your app:
 
