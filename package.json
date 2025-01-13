@@ -1,5 +1,5 @@
 {
-  "name": "example-app",
+  "name": "example-app-v2",
   "private": true,
   "scripts": {
     "build": "prisma generate && remix vite:build",

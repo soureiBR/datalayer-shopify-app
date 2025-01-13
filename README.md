@@ -26,7 +26,23 @@ Modify the following fields in the configuration files:
 
 - **`name`**: Update to match your app's name.
 
-### 3. Install Dependencies
+### 3. Create a `.env` File
+
+Create a `.env` file in the root of your project with the following content:
+
+```env
+# Shopify and Vercel
+SHOPIFY_API_KEY=570dd80ead4538bbe2262e8eaf693274
+SHOPIFY_API_SECRET=bc04c47d413ecfc12232ed4d7f5fcd50
+SHOPIFY_SCOPES=read_products,write_products,read_orders,write_orders
+SHOPIFY_APP_URL=https://shopify-vercel-app-chi.vercel.app
+
+# Database ultra important
+DATABASE_URL=postgres://neondb_owner:vNfLsgS8d6lI@ep-green-forest-a5ja5x5i-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require
+DIRECT_DATABASE_URL=postgresql://neondb_owner:vNfLsgS8d6lI@ep-green-forest-a5ja5x5i.us-east-2.aws.neon.tech/neondb?sslmode=require
+```
+
+### 4. Install Dependencies
 
 Install all necessary dependencies:
 
@@ -34,7 +50,7 @@ Install all necessary dependencies:
 npm install
 ```
 
-### 4. Generate and Migrate Prisma
+### 5. Generate and Migrate Prisma
 
 Run the following commands to generate and migrate the Prisma schema:
 
@@ -43,15 +59,16 @@ npx prisma generate
 npx prisma migrate deploy
 ```
 
-### 5. Deploy to Vercel
+### 6. Deploy to Vercel
 
 Deploy the app to Vercel for the first time:
 
 1. Create a new project on Vercel and connect it to your repository.
 2. Update the `application_url` and `redirect_url` fields in `shopify.app.toml` to the URL provided by Vercel.
-3. Deploy the project.
+3. Add the `.env` file variables to your Vercel project's environment settings.
+4. Deploy the project.
 
-### 6. Deploy to Shopify
+### 7. Deploy to Shopify
 
 Run the Shopify CLI command to deploy your app:
 
