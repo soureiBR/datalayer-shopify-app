@@ -70,10 +70,10 @@ export default function Index() {
                     <strong>Email:</strong> <Link url="mailto:your_email@example.com" removeUnderline>kaizendesarrollador@gmail.com</Link>
                   </List.Item>
                   <List.Item>
-                    <strong>GitHub:</strong> <Link url="https://github.com/yourgithub" target="_blank" removeUnderline>github.com/yourgithub</Link>
+                    <strong>GitHub:</strong> <Link url="https://github.com/aaronarrays" target="_blank" removeUnderline>github.com/aaronarrays</Link>
                   </List.Item>
                   <List.Item>
-                    <strong>LinkedIn:</strong> <Link url="https://linkedin.com/in/yourlinkedin" target="_blank" removeUnderline>linkedin.com/in/yourlinkedin</Link>
+                    <strong>LinkedIn:</strong> <Link url="https://linkedin.com/in/aaronkaizen" target="_blank" removeUnderline>linkedin.com/in/aaronkaizen</Link>
                   </List.Item>
                 </List>
               </Box>
